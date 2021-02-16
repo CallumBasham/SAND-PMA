@@ -1,7 +1,10 @@
-ifconfig eth0 201.224.19.7/16
-route add default gw 201.224.131.22
+#ifconfig eth0 201.224.19.7/16
+#route add default gw 201.224.131.22
 
-a2enmod ssl
-a2ensite default-ssl
-service apache2 start
+#a2enmod ssl
+#a2ensite default-ssl
+#service apache2 start
+
+# WAN
+ifconfig eth0 169.69.69.69/29
 

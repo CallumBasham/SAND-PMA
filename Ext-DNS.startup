@@ -1,4 +1,10 @@
-ifconfig eth0 8.8.8.8/24
-route add default gw 8.8.8.1
+#ifconfig eth0 8.8.8.8/24
+#route add default gw 8.8.8.1
 
-service dnsmasq start
+#service dnsmasq start
+
+
+
+# WAN
+ifconfig eth0 169.69.69.70/29
+
