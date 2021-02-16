@@ -1,4 +1,8 @@
-ifconfig eth0 137.205.41.131/16
-route add default gw 137.205.157.254
+#ifconfig eth0 137.205.41.131/16
+#route add default gw 137.205.157.254
 
-service dnsmasq start
+#service dnsmasq start
+
+
+# DMZ
+ifconfig eth0 192.168.0.21/28

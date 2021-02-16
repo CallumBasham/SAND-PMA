@@ -1,0 +1,5 @@
+# WAN
+ifconfig eth0 169.69.69.65/29
+
+# Edge
+ifconfig eth1 192.168.0.1/30
