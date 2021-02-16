@@ -1,0 +1,6 @@
+# Internal Firewall - Internal Switch
+#ifconfig eth0 192.1.1.134/28
+ #TODO - Confirm this...?
+
+
+

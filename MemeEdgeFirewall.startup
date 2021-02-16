@@ -1,0 +1,5 @@
+# EDGE Router - Edge Firewall
+ifconfig eth0 122.22.22.126/30
+
+# Edge Firewall - Squid
+ifconfig eth1 122.22.22.129/30

@@ -1,6 +1,17 @@
-ifconfig eth0 137.205.37.201/16
-route add default gw 137.205.157.254
+# Edge Firewall - Squid
+ifconfig eth0 122.22.22.130/30
 
-touch /var/log/squid/access.log
-chmod 777 /var/log/squid/access.log
-systemctl start squid.service
+
+# Squid - DMZ Switch
+ifconfig eth1 192.1.1.129/28
+ #TODO - Confirm this...?
+
+
+
+
+#ifconfig eth0 137.205.37.201/16
+#route add default gw 137.205.157.254
+
+#touch /var/log/squid/access.log
+#chmod 777 /var/log/squid/access.log
+#systemctl start squid.service

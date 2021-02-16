@@ -1,0 +1,43 @@
+## Squid - DMZ Switch
+#ifconfig eth0 192.1.1.130/28 #TODO - Confirm this...?
+
+
+## DMZ Switch - Internal Firewall
+#ifconfig eth1 192.1.1.131/28 #TODO - Confirm this...?
+
+
+# Add Mac's
+#TODO - convert below to loop
+ifconfig eth0 hw ether 08:00:4e:10:10:01
+ifconfig eth1 hw ether 08:00:4e:10:10:02
+ifconfig eth2 hw ether 08:00:4e:10:10:03
+ifconfig eth3 hw ether 08:00:4e:10:10:04
+ifconfig eth4 hw ether 08:00:4e:10:10:05
+ifconfig eth5 hw ether 08:00:4e:10:10:06
+
+# Add Bridge
+brctl addbr sw0
+
+# Add Bridge Links
+brctl addif sw0 eth0
+brctl addif sw0 eth1
+brctl addif sw0 eth2
+brctl addif sw0 eth3
+brctl addif sw0 eth4
+brctl addif sw0 eth5
+
+# Make Prom (no IP addreesses here)
+ifconfig eth0 0.0.0.0 promisc up
+ifconfig eth1 0.0.0.0 promisc up
+ifconfig eth2 0.0.0.0 promisc up
+ifconfig eth3 0.0.0.0 promisc up
+ifconfig eth4 0.0.0.0 promisc up
+ifconfig eth5 0.0.0.0 promisc up
+
+
+# Startup
+brctl stp sw0 on
+brctl setbridgeprio sw0 150
+
+ifconfig sw0 up
+

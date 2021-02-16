@@ -1,0 +1,5 @@
+# WAN - MEME
+ifconfig eth0 122.22.22.122/30
+
+# EDGE Router - Edge Firewall
+ifconfig eth1 122.22.22.125/30
