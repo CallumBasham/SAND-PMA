@@ -1,5 +1,8 @@
-# Edge
-ifconfig eth0 192.168.0.2/30
+# Edge from Proxy
+ifconfig eth0 192.168.0.6/30
 
-# Proxy-DMZ
-ifconfig eth1 192.168.0.5/30
+# FW-DMZ
+ifconfig eth1 192.168.0.17/28
+
+
+#route add default gw 192.168.0.5

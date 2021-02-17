@@ -5,9 +5,15 @@
 #chmod 777 /var/log/squid/access.log
 #systemctl start squid.service
 
+
+
+# Edge Router
+ifconfig eth0 192.168.0.2/30
+
+
 # Edge Firewall
-ifconfig eth0 192.168.0.6/30
+ifconfig eth1 192.168.0.5/30
 
 
-# DMZ
-ifconfig eth1 192.168.0.17/28
+# DMZ Bypass
+ifconfig eth2 192.168.0.37/29

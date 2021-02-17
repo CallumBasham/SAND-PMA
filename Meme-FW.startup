@@ -1,0 +1,11 @@
+# Meme Firewall
+ifconfig eth0 192.168.0.18/28
+
+# DMZ Bypass
+ifconfig eth2 192.168.0.36/29
+
+# Meme Internal
+ifconfig eth1 192.168.0.33/29
+
+# Bypass the DMZ to Default Route
+#route add default gw 192.168.0.37
