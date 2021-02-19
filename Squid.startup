@@ -6,14 +6,16 @@
 #systemctl start squid.service
 
 
-
 # Edge Router
 ifconfig eth0 192.168.0.2/30
 
 
 # Edge Firewall
-ifconfig eth1 192.168.0.5/30
+ifconfig eth1 192.168.1.1/28
 
 
-# DMZ Bypass
-ifconfig eth2 192.168.0.37/29
+# Gateway to Router
+
+route add -net 192.168.1.0/28 via 192.168.1.1
+
+route add default gw 192.168.0.1

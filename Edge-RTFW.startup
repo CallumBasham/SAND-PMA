@@ -1,0 +1,15 @@
+# WAN
+ifconfig eth0 52.2.2.65/29
+
+# Edge
+ifconfig eth1 192.168.0.1/30
+
+# Routing
+
+# Route to the DMZ Switch Network
+route add -net 192.168.1.0/28 gw 192.168.0.2
+
+# Route to the WAN
+route add default gw 52.2.2.66
+
+

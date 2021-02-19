@@ -1,0 +1,22 @@
+ifconfig eth0 hw ether 08:00:4e:10:10:01
+ifconfig eth1 hw ether 08:00:4e:10:10:02
+ifconfig eth2 hw ether 08:00:4e:10:10:03
+
+brctl addbr sw0
+
+brctl addif sw0 eth0
+brctl addif sw0 eth1
+brctl addif sw0 eth2
+
+ifconfig eth0 0.0.0.0 promisc up
+ifconfig eth1 0.0.0.0 promisc up
+ifconfig eth2 0.0.0.0 promisc up
+
+
+# ensure spanning tree is active incase we get loops
+brctl stp sw0 on
+brctl setbridgeprio sw0 150
+
+# lastly, bring the bridge up
+ifconfig sw0 up
+

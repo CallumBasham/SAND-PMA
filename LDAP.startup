@@ -1,5 +1,10 @@
-ifconfig eth0 137.205.34.21/16
-route add default gw 137.205.157.254
+#ifconfig eth0 137.205.34.21/16
+#route add default gw 137.205.157.254
 
-while true; do nc -lvp 389;done &
-while true; do nc -ulvp 389;done &
+#while true; do nc -lvp 389;done &
+#while true; do nc -ulvp 389;done &
+
+
+# Link to Gateway
+ifconfig eth0 192.168.0.51/28
+

@@ -1,0 +1,9 @@
+# Central Bridge
+ifconfig eth0 192.168.0.35/29
+
+# Server Lane
+ifconfig eth1 192.168.16.1/20
+
+# Gateway to Meme-FW
+
+

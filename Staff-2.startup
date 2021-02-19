@@ -1,2 +1,7 @@
-ifconfig eth0 137.205.69.201/16
-route add default gw 137.205.157.254
+#ifconfig eth0 137.205.69.201/16
+#route add default gw 137.205.157.254
+
+
+# Link to Staff Switch
+ifconfig eth0 192.168.16.3/20
+

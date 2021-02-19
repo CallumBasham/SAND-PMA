@@ -1,11 +1,31 @@
 # Meme Firewall
-ifconfig eth0 192.168.0.18/28
+ifconfig eth0 192.168.1.2/28
 
 # DMZ Bypass
-ifconfig eth2 192.168.0.36/29
+#ifconfig eth2 155.168.0.36/29
 
 # Meme Internal
 ifconfig eth1 192.168.0.33/29
 
 # Bypass the DMZ to Default Route
 #route add default gw 192.168.0.37
+
+
+# Gateway to Squid
+#ip route add 192.168.0.16/28 via 192.168.0.18 dev eth0 # this shouldn't be required...
+#route add default gw 192.168.0.37 dev eth2
+
+
+
+# Packets for DMZ go
+#iptables -A FORWARD \
+#	-s 192.168.0.33/29 \
+#	-d 192.168.0.16/28 \
+#	-j ACCEPT
+	
+# Packets for Router go
+#iptables -A FORWARD \
+#	-s 192.168.0.33/29 \
+#	!-d 92.168.0.16/28 \
+#	-j ACCEPT
+	

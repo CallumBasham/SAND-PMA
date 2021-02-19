@@ -5,5 +5,8 @@
 
 
 # WAN
-ifconfig eth0 169.69.69.66/29
+ifconfig eth0 52.2.2.66/29
 
+
+route add -net 192.168.0.0/30 gw 52.2.2.65
+route add -net 192.168.1.0/28 gw 52.2.2.65
