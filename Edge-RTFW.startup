@@ -1,9 +1,17 @@
+# [ Edge-RWFT ]
+# Purpose -> 
+#	The entry point into the MEME Network, acts as a router and a firewall.
+
+
+# [ Interfaces ]
 # WAN
-ifconfig eth0 52.2.2.65/29
+ifconfig eth0 52.2.2.65/28
 
 # Edge
 ifconfig eth1 10.0.0.1/30
 
+
+# [ Routing ]
 # Route to the DMZ Switch Network
 route add -net 10.0.1.0/28 gw 10.0.0.2
 
@@ -11,3 +19,20 @@ route add -net 10.0.1.0/28 gw 10.0.0.2
 route add default gw 52.2.2.66
 
 
+# [ NAT ]
+# Enable IP-Forwarding
+echo "1" > /proc/sys/net/ipv4/ip_forward
+
+# Perform NAT
+# Masquerade = replace senders address with routers
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE 
+
+
+# Preroute incomming web traffic (port 80), to our Int-WWW Apache Server ###TODO
+#iptables -t nat -A PREROUTING -p tcp -i eth0 --dport 80 -j DNAT --to 10.0.1.6
+
+
+# [ Firewall ]
+iptables -A INPUT -i eth0 -j ACCEPT # todo - filter more...
+iptables -A INPUT -i eth1 -m state --state ESTABLISHED,RELATED -j ACCEPT # cont. of above
+iptables -A OUTPUT -j ACCEPT # Allow outgoing - todo - filter more

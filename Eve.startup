@@ -1,0 +1,6 @@
+# WAN
+ifconfig eth0 52.2.2.78/28
+
+
+# Internet Default Gateway
+route add default gw 52.2.2.66

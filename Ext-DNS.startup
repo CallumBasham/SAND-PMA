@@ -6,5 +6,5 @@
 
 
 # WAN
-ifconfig eth0 169.69.69.70/29
+ifconfig eth0 52.2.2.70/28
 
