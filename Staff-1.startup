@@ -3,5 +3,7 @@
 
 
 # Link to Staff Switch
-ifconfig eth0 192.168.16.2/20
+ifconfig eth0 10.1.0.2/20
 
+
+route add default gw 10.1.0.1

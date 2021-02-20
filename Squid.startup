@@ -14,8 +14,10 @@ ifconfig eth0 10.0.0.2/30
 ifconfig eth1 10.0.1.1/28
 
 
+# Exposing internal network
+ip route add 10.0.1.0/28 dev eth1
+ip route add 10.0.0.32/29 via 10.0.1.2 dev eth1
+ip route add 10.1.0.0/20 via 10.0.1.2 dev eth1
+
 # Gateway to Router
-
-route add -net 10.0.1.0/28 via 10.0.1.1
-
 route add default gw 10.0.0.1

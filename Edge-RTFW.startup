@@ -4,8 +4,6 @@ ifconfig eth0 52.2.2.65/29
 # Edge
 ifconfig eth1 10.0.0.1/30
 
-# Routing
-
 # Route to the DMZ Switch Network
 route add -net 10.0.1.0/28 gw 10.0.0.2
 
