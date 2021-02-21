@@ -1,11 +1,29 @@
-#ifconfig eth0 137.205.41.131/16
-#route add default gw 137.205.157.254
+# [ Int-DNS ]
+# Purpose -> 
+#	The entry point into the MEME Network, acts as a router and a firewall.
 
-#service dnsmasq start
 
-
+# [ Interfaces ]
 # DMZ
 ifconfig eth0 10.0.1.5/28
 
 
+# [ Routing ]
 route add default gw 10.0.1.1
+
+
+# [ Firewall ]
+iptables -A INPUT -p udp --dport 53 -j ACCEPT
+iptables -A OUTPUT -p udp --sport 53 -j ACCEPT
+iptables -A INPUT -p tcp --dport 53 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 53 -j ACCEPT
+
+# [ DNS ]
+systemctl disable systemd-resolved
+service dnsmasq start
+systemctl start named
+
+# Verify the DNS Confirugation 
+named-checkconf
+named-checkzone Int-DNS.meme.cyber.test db.meme.cyber.test
+named-checkzone 1.0.10.in-addr.arpa /etc/bind/db.1.0.10

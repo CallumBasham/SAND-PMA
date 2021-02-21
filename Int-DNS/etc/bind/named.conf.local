@@ -1,0 +1,13 @@
+acl dmz { 10.0.1.0/28; };
+
+zone "meme.cyber.test" {
+	type master;
+	file "/etc/bind/db.meme.cyber.test";
+	allow-query { dmz; };
+};
+
+zone "1.0.10.in-addr.arpa" {
+	type master;
+	file "/etc/bind/db.1.0.10";
+	allow-query { dmz; };
+};
