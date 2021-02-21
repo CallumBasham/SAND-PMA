@@ -1,3 +1,8 @@
+# [ Squid ]
+# Purpose -> 
+#	The entry point into the MEME Network, acts as a router and a firewall.
+
+
 #ifconfig eth0 137.205.37.201/16
 #route add default gw 137.205.157.254
 
@@ -6,18 +11,20 @@
 #systemctl start squid.service
 
 
+
+# [ Interfaces ]
 # Edge Router
 ifconfig eth0 10.0.0.2/30
-
 
 # Edge Firewall
 ifconfig eth1 10.0.1.1/28
 
 
+# [ Routing ]
 # Exposing internal network
-ip route add 10.0.1.0/28 dev eth1
-ip route add 10.0.0.32/29 via 10.0.1.2 dev eth1
-ip route add 10.1.0.0/20 via 10.0.1.2 dev eth1
+#ip route add 10.0.1.0/28 dev eth1
+#ip route add 10.0.0.32/29 via 10.0.1.2 dev eth1
+#ip route add 10.1.0.0/20 via 10.0.1.2 dev eth1
 
 # Gateway to Router
 route add default gw 10.0.0.1

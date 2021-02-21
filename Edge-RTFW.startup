@@ -12,10 +12,19 @@ ifconfig eth1 10.0.0.1/30
 
 
 # [ Routing ]
-# Route to the DMZ Switch Network
-route add -net 10.0.1.0/28 gw 10.0.0.2
+# List the DMZ behind Squid
+ip route add 10.0.1.0/28 via 10.0.0.2 dev eth1
 
-# Route to the WAN
+# List the Central Bridge of Meme Network
+ip route add 10.0.0.32/29 via 10.0.0.2 dev eth1
+
+# List the Staff Network behind the Meme Network
+ip route add 10.1.0.0/20 via 10.0.0.2 dev eth1 
+
+# List the Server Network behind the Meme Network
+ip route add 10.0.2.0/28 via 10.0.0.2 dev eth1 
+
+# Gateway to WAN
 route add default gw 52.2.2.66
 
 
