@@ -1,0 +1,19 @@
+# [ DHCP ]
+# Purpose -> 
+#	The entry point into the MEME Network, acts as a router and a firewall.
+
+
+# [ Interfaces ]
+#ifconfig eth0 10.0.2.2/28
+ifconfig eth0 10.1.0.254
+
+
+# [ Routing ]
+#route add default gw 10.0.2.1
+route add default gw 10.1.0.1
+
+
+# [ DHCP ]
+/etc/init.d/dnsmasq start
+
+

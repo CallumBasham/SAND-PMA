@@ -3,7 +3,9 @@
 
 
 # Link to Staff Switch
-ifconfig eth0 10.1.0.2/20
+#ifconfig eth0 10.1.0.2/20
+ifconfig eth0 hw ether 02:60:ac:9a:bc:03
+dhclient eth0
 
 
-route add default gw 10.1.0.1
+#route add default gw 10.1.0.1

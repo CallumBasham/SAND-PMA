@@ -1,10 +1,11 @@
 # Central Bridge
-ifconfig eth0 192.168.0.34/29
+ifconfig eth0 10.0.0.34/29
+
 
 # Server Lane
-ifconfig eth1 192.168.0.49/28
+ifconfig eth1 10.0.2.1/28
 
 
 # Gateway to Meme-FW
-route add default gw 192.168.0.33 dev eth0
+route add default gw 10.0.0.33 dev eth0
 

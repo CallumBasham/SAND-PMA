@@ -14,6 +14,7 @@ ifconfig eth1 10.0.0.33/29
 ip route add 10.0.1.0/28 dev eth0
 ip route add 10.0.0.32/29 dev eth1
 ip route add 10.1.0.0/20 via 10.0.0.35 dev eth1
+ip route add 10.0.2.0/28 via 10.0.0.34 dev eth1
 
 # Default Traffic through Squid
 ip route add default via 10.0.1.1

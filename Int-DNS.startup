@@ -25,5 +25,6 @@ systemctl start named
 
 # Verify the DNS Confirugation 
 named-checkconf
-named-checkzone Int-DNS.meme.cyber.test db.meme.cyber.test
+named-checkzone int-dns.meme.cyber.test /etc/bind/db.meme.cyber.test
+named-checkzone meme.cyber.test /etc/bind/db.meme.cyber.test
 named-checkzone 1.0.10.in-addr.arpa /etc/bind/db.1.0.10
