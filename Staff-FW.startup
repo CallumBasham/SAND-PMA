@@ -5,5 +5,16 @@ ifconfig eth0 10.0.0.35/29
 ifconfig eth1 10.1.0.1/20
 
 # Gateway to Meme-FW
-ip route add 10.1.0.0/20 dev eth1
+ip route add 10.0.2.0/28 via 10.0.0.34 dev eth0
 route add default gw 10.0.0.33 dev eth0
+
+# DHCP Relaying
+ping -c1 10.0.2.2
+#dhcrelay -i eth0 -i eth1 10.0.0.34
+#dhcrelay -i eth0 -i eth1 10.0.2.2
+
+dhcrelay 10.0.0.2
+
+systemctl --system daemon-reload
+ping -c1 10.0.2.2
+#systemctl restart dhcrelay

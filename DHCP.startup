@@ -4,13 +4,12 @@
 
 
 # [ Interfaces ]
-#ifconfig eth0 10.0.2.2/28
-ifconfig eth0 10.1.0.254
+ifconfig eth0 10.0.2.2/28
 
 
 # [ Routing ]
-#route add default gw 10.0.2.1
-route add default gw 10.1.0.1
+ip route add 10.1.0.0/20 via 10.0.2.1 dev eth0
+route add default gw 10.0.2.1
 
 
 # [ DHCP ]
