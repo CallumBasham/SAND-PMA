@@ -1,25 +1,71 @@
-ifconfig eth0 hw ether 08:00:4e:10:10:01
-ifconfig eth1 hw ether 08:00:4e:10:10:02
-ifconfig eth2 hw ether 08:00:4e:10:10:03
-ifconfig eth2 hw ether 08:00:4e:10:10:04
+#ifconfig eth0 hw ether 08:00:4e:10:10:01
+#ifconfig eth1 hw ether 08:00:4e:10:10:02
+#ifconfig eth2 hw ether 08:00:4e:10:10:03
+#ifconfig eth2 hw ether 08:00:4e:10:10:04
 
-brctl addbr sw0
+#brctl addbr sw0
 
-brctl addif sw0 eth0
-brctl addif sw0 eth1
-brctl addif sw0 eth2
-brctl addif sw0 eth3
+#brctl addif sw0 eth0
+#brctl addif sw0 eth1
+#brctl addif sw0 eth2
+#brctl addif sw0 eth3
 
-ifconfig eth0 0.0.0.0 promisc up
-ifconfig eth1 0.0.0.0 promisc up
-ifconfig eth2 0.0.0.0 promisc up
-ifconfig eth3 0.0.0.0 promisc up
+#ifconfig eth0 0.0.0.0 promisc up
+#ifconfig eth1 0.0.0.0 promisc up
+#ifconfig eth2 0.0.0.0 promisc up
+#ifconfig eth3 0.0.0.0 promisc up
 
 
 # ensure spanning tree is active incase we get loops
-brctl stp sw0 on
-brctl setbridgeprio sw0 150
+#brctl stp sw0 on
+#brctl setbridgeprio sw0 150
 
 # lastly, bring the bridge up
-ifconfig sw0 up
+#ifconfig sw0 up
 
+
+
+for i in $(seq 0 1 4)
+do
+	ip link set dev eth${i} address 08:00:43:sf:sf:0${i}
+	ip link set dev eth${i} group 30
+done
+
+# Create a bridge device
+ip link add sw0 type bridge vlan_filtering 1
+ip link set dev sw0 address 08:00:4e:sf:sf:00
+
+# make sw0 the master of group 30 (eth cards)
+ip link set group 30 master sw0
+
+# Start each device
+ip link set group 30 up
+
+# Make all devices promiscuous
+ip link set group 30 promisc on
+
+# since we have loops ensure, spanning tree is active
+brctl stp sw0 on
+brctl setbridgeprio sw0 300
+#brctl setaging sw0 60
+
+# Enable vlan
+echo "1" > /sys/class/net/sw0/bridge/vlan_filtering
+
+
+# make all ports carry all non-default vlan traffic
+#for i in $(seq 0 1 3)
+#do
+  	#bridge vlan add vid 2-4094 dev eth${i}
+#  	echo "${i}"
+#	bridge vlan add vid 111 pvid untagged dev eth${i}
+#done
+
+
+# associate all possible non-default vlans with the inter-switch ports 7 & 8
+#bridge vlan add vid 2-4094 dev eth0
+#bridge vlan add vid 2-4094 dev eth8
+
+
+# lastly, bring the bridge up
+ip link set dev sw0 up

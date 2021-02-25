@@ -1,0 +1,44 @@
+for i in $(seq 0 1 1)
+do
+	ip link set dev eth${i} address 08:00:43:as:as:0${i}
+	ip link set dev eth${i} group 32
+done
+
+# Create a bridge device
+ip link add sw0 type bridge vlan_filtering 1
+ip link set dev sw0 address 08:00:4e:as:as:00
+
+# make sw0 the master of group 30 (eth cards)
+ip link set group 32 master sw0
+
+# Start each device
+ip link set group 32 up
+
+# Make all devices promiscuous
+ip link set group 32 promisc on
+
+# since we have loops ensure, spanning tree is active
+brctl stp sw0 on
+brctl setbridgeprio sw0 250
+#brctl setaging sw0 60
+
+# Enable vlan
+echo "1" > /sys/class/net/sw0/bridge/vlan_filtering
+
+
+# make all ports carry all non-default vlan traffic
+for i in $(seq 0 1 1)
+do
+  	#bridge vlan add vid 2-4094 dev eth${i}
+  	#echo "${i}"
+	bridge vlan add vid 5 pvid untagged dev eth${i}
+done
+
+
+# associate all possible non-default vlans with the inter-switch ports 7 & 8
+#bridge vlan add vid 2-4094 dev eth0
+#bridge vlan add vid 2-4094 dev eth8
+
+
+# lastly, bring the bridge up
+ip link set dev sw0 up
