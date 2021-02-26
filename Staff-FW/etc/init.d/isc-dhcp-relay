@@ -1,0 +1,5 @@
+# Forward to this server
+SERVERS="10.0.2.2" 
+
+# Which iface to server DHCP requests
+INTERFACES="eth1"

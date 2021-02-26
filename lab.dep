@@ -7,6 +7,7 @@ TechPC1: DHCP
 AusPC1: DHCP
 Staff-FW: DHCP
 Staff-1: DHCP
+Staff-2: DHCP
 
 Vol-SW: Staff-SW
 Tech-SW: Staff-SW

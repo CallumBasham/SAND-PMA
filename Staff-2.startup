@@ -3,8 +3,9 @@
 
 
 # Link to Staff Switch
-###ifconfig eth0 10.1.0.3/20
+###
 ifconfig eth0 hw ether 02:60:ac:9a:bc:02
+#ifconfig eth0 10.1.0.3/20
 dhclient eth0
 
 

@@ -1,0 +1,15 @@
+
+# The loopback network interface
+auto lo 
+iface lo inet loopback
+
+# eth0 
+auto eth0
+iface eth0 inet static
+	address 10.0.2.2
+	netmask 255.255.255.240
+	broadcast 10.0.2.15
+	gateway 10.0.2.1
+	hwaddress ether 04:60:ac:9a:bc:dd
+
+

@@ -1,0 +1,27 @@
+    1  ip route
+    2  ifconfig
+    3  ping -c1 10.0.2.2
+    4  ping -c1 10.0.2.1
+    5  cat /etc/dhcp/dhcpd.conf
+    6  dhcpd
+    7  dhcpd -t /etc/dhcp/dhcpd.conf
+    8  cd /etc/default/
+    9  ls
+   10  cat isc-dhcp-server
+   11  rm isc-dhcp-server
+   12  mv isc-dhcp-server.conf isc-dhcp-server
+   13  ls
+   14  dhcpd -t /etc/dhcp/dhcpd.conf
+   15  service isc-dhcp-server start
+   16  service isc-dhcp-server status
+   17  service isc-dhcp-server status
+   18  emacs
+   19  emacs ~/.bash_history
+   20  cat ~/.bash_history
+   21  cat ~/.bash_history
+   22  cd ..
+   23  cd ,,
+   24  cd ..
+   25  cat ~/.bash_history
+   26  history
+   27  history > /hostlab/DHCP.bash.history
