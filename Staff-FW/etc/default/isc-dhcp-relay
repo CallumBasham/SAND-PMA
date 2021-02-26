@@ -1,0 +1,7 @@
+# Forward DHCP Requests to:
+SERVERS="10.0.2.2"
+
+# Serve DHCP on the following devies
+INTERFACES="eth0 eth1"
+
+
