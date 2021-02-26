@@ -20,7 +20,8 @@ ifup eth0
 #service isc-dhcp-server restart
 #service isc-dhcp-server stop
 #echo "ISC-DHCP-SERVER Output.... >>>>>>>>>>>>>>>>>>>>>>"
-#service isc-dhcp-server start
+service isc-dhcp-server start
+service isc-dhcp-server status
 #echo "DHCPD Output.... >>>>>>>>>>>>>>>>>>>>>>"
 #dhcpd
 
