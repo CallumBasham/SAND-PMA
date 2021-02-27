@@ -1,3 +1,14 @@
+Server-FW: Meme-SW
+Staff-FW: Meme-SW
+
+Root-DNS: Server-FW
+
+DHCP: Root-DNS
+
+
+
+
+
 VolPC1: Vol-SW
 TechPC1: Tech-SW
 AusPC1: Aus-SW
@@ -8,6 +19,8 @@ AusPC1: DHCP
 Staff-FW: DHCP
 Staff-1: DHCP
 Staff-2: DHCP
+LDAP: DHCP
+
 
 Vol-SW: Staff-SW
 Tech-SW: Staff-SW

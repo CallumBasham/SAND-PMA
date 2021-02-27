@@ -14,16 +14,9 @@ ifup eth0
 
 
 # [ DHCP ]
-#/etc/init.d/dnsmasq start
-# Migrated from dnsmasq to isc-dhcp-server below:
-
-#service isc-dhcp-server restart
-#service isc-dhcp-server stop
-#echo "ISC-DHCP-SERVER Output.... >>>>>>>>>>>>>>>>>>>>>>"
+# Start the DHCP Service
 service isc-dhcp-server start
 service isc-dhcp-server status
-#echo "DHCPD Output.... >>>>>>>>>>>>>>>>>>>>>>"
-#dhcpd
 
-#echo "DHCPD Config File Test Output.... >>>>>>>>>>>>>>>>>>>>>>"
+# Test the DHCPD Configuration File
 #dhcpd -t /etc/dhcp/dhcpd.conf

@@ -1,0 +1,17 @@
+ifconfig eth0 hw ether 00:08:20:93:53:D2
+#dhclient eth0
+ifconfig eth0 10.0.2.4/28
+
+
+
+systemctl disable systemd-resolved
+#service dnsmasq start
+systemctl start named
+
+# Verify the DNS Confirugation 
+named-checkconf
+named-checkzone root-dns.meme.cyber.test /etc/bind/db.meme.cyber.test
+named-checkzone meme.cyber.test /etc/bind/db.meme.cyber.test
+named-checkzone 2.0.10.in-addr.arpa /etc/bind/db.2.0.10
+
+systemctl status named

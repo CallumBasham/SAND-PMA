@@ -1,0 +1,13 @@
+acl srv { 10.0.2.0/28; };
+
+zone "meme.cyber.test" {
+	type master;
+	file "/etc/bind/db.meme.cyber.test";
+	allow-query { srv; };
+};
+
+zone "2.0.10.in-addr.arpa" {
+	type master;
+	file "/etc/bind/db.2.0.10";
+	allow-query { srv; };
+};

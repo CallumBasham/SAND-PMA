@@ -19,5 +19,5 @@ route add default gw 10.0.0.33 dev eth0
 #ping -c1 10.0.2.2
 #systemctl restart dhcrelay
 
-service-dhcp-relay start
-service-dhcp-relay status
+service isc-dhcp-relay start
+service isc-dhcp-relay status
