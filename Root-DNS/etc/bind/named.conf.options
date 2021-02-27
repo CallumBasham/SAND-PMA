@@ -6,6 +6,7 @@ options {
 	directory "/var/cache/bind";
 	
 	recursion yes;
+	forward only; #recent...
 	#allow-recursion { trusted; };
 	listen-on { 10.0.2.4; };
 	#allow-transfer { x.x.x.x; }; # Set this to slave DNS server...

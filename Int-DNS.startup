@@ -13,18 +13,30 @@ route add default gw 10.0.1.1
 
 
 # [ Firewall ]
-iptables -A INPUT -p udp --dport 53 -j ACCEPT
-iptables -A OUTPUT -p udp --sport 53 -j ACCEPT
-iptables -A INPUT -p tcp --dport 53 -j ACCEPT
-iptables -A OUTPUT -p tcp --sport 53 -j ACCEPT
+
 
 # [ DNS ]
+#systemctl disable systemd-resolved
+#service dnsmasq start
+#systemctl start named
+
+# Verify the DNS Confirugation 
+##named-checkconf
+#named-checkzone int-dns.meme.cyber.test /etc/bind/db.meme.cyber.test
+#named-checkzone meme.cyber.test /etc/bind/db.meme.cyber.test
+#named-checkzone 1.0.10.in-addr.arpa /etc/bind/db.1.0.10
+
+
 systemctl disable systemd-resolved
-service dnsmasq start
+#service dnsmasq start
 systemctl start named
 
 # Verify the DNS Confirugation 
-named-checkconf
-named-checkzone int-dns.meme.cyber.test /etc/bind/db.meme.cyber.test
-named-checkzone meme.cyber.test /etc/bind/db.meme.cyber.test
-named-checkzone 1.0.10.in-addr.arpa /etc/bind/db.1.0.10
+#named-checkconf
+#named-checkzone root-dns.meme.cyber.test /etc/bind/zones/db.meme.cyber.test
+#named-checkzone meme.cyber.test /etc/bind/zones/db.meme.cyber.test
+#named-checkzone 2.0.10.in-addr.arpa /etc/bind/db.2.0.10
+#named-checkzone . /etc/bind/zones/db.2.0.10
+#named-checkzone . /etc/bind/zones/db.1.10
+
+systemctl status named

@@ -2,9 +2,7 @@ options {
 	directory "/var/cache/bind";
 	
 	recursion yes;
-	#allow-recursion { trusted; };
-	listen-on { 10.0.1.5; };
-	allow-transfer { none; }; # May need to enable this...?
+
 	
 	
 	forwarders {
@@ -12,7 +10,7 @@ options {
 		8.8.4.4;
 	};
 	
-	#forward only;
+	forward only;
 
 	#allow-query {
 	#	172.16.0.0/12;
