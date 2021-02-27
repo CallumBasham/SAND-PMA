@@ -14,5 +14,7 @@ systemctl start named
 #named-checkzone root-dns.meme.cyber.test /etc/bind/zones/db.meme.cyber.test
 #named-checkzone meme.cyber.test /etc/bind/zones/db.meme.cyber.test
 #named-checkzone 2.0.10.in-addr.arpa /etc/bind/db.2.0.10
+#named-checkzone . /etc/bind/zones/db.2.0.10
+#named-checkzone . /etc/bind/zones/db.1.10
 
 systemctl status named
