@@ -1,0 +1,43 @@
+$ORIGIN meme.cyber.test.
+$TTL	8h ;Time to Live
+@	IN	SOA     root-dns.meme.cyber.test.    sysadmin.meme.cyber.test. (
+		60 ; serial
+		8h         ; refresh
+		2h         ; retry
+		1w         ; expire
+		0          ; negative cache ttl
+		)
+		NS root-dns.meme.cyber.test.
+
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+; nameserver(s)
+;$ORIGIN MEME.cyber.test.
+@ 	IN	NS	root-dns.meme.cyber.test.
+root-dns.meme.cyber.test.	IN	A	10.0.2.4
+
+;meme.cyber.test.	IN	NS	root-dns.meme.cyber.test.
+;root-dns.meme.cyber.test.	IN	A	10.0.2.4
+
+	
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+; gateway(s)
+;$ORIGIN MEME.cyber.test.
+server-fw.meme.cyber.test. 	IN	A	10.0.2.1
+
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+; host(s)
+; Servers 
+dhcp.meme.cyber.test.	IN	A	10.0.2.2
+ldap.meme.cyber.test.		IN	A	10.0.2.5
+
+
+
+; DMZ
+;int-dns.meme.cyber.test.	IN	A	10.0.1.5
+;openvpn.meme.cyber.test.		IN	A	10.0.1.3
+;mail.meme.cyber.test.		IN	A	10.0.1.4
+;int-www.meme.cyber.test.		IN	A	10.0.1.6
+;meme-fw.meme.cyber.test.		IN	A	10.0.1.2
+;squid.meme.cyber.test.		IN	A	10.0.1.1
+
+

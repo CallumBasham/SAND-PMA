@@ -1,13 +1,120 @@
-acl srv { 10.0.2.0/28; };
+# -<[ Shared Secret Key ]>- #
+include "/etc/bind/keys/isc-dhcp-server-rndc.key";
 
-zone "meme.cyber.test" {
+
+# -<[ Access Control Lists ]>- #
+acl servers { 10.0.2.0/28; };
+acl staff { 10.1.0.0/20; };
+acl dmz { 10.0.1.0/28; };
+acl generic_meme { 10.0.0.0/28; };
+
+
+zone "meme.cyber.test." {
 	type master;
-	file "/etc/bind/db.meme.cyber.test";
-	allow-query { srv; };
+	file "/etc/bind/zones/db.meme.cyber.test";
+	allow-query {
+		servers;
+		staff;
+		dmz;
+		generic_meme;
+	};
+	
+	#allow-update {
+	#	key MemeAutoDNSSync;
+	#};		
+	update-policy {
+		grant MemeAutoDNSSync zonesub any;
+	};
 };
 
-zone "2.0.10.in-addr.arpa" {
+
+
+zone "2.0.10.in-addr.arpa." {
 	type master;
-	file "/etc/bind/db.2.0.10";
-	allow-query { srv; };
+	file "/etc/bind/zones/db.2.0.10";
+	allow-query {
+		servers;
+		staff;
+		dmz;
+		generic_meme;
+	};
+	#allow-update {
+	#	key MemeAutoDNSSync;
+	#};
+	update-policy {
+		grant MemeAutoDNSSync zonesub any;
+	};
 };
+
+zone "1.10.in-addr.arpa." {
+	type master;
+	file "/etc/bind/zones/db.1.10";
+	allow-query {
+		servers;
+		staff;
+		dmz;
+		generic_meme;
+	};
+	#allow-update {
+	#	key MemeAutoDNSSync;
+	#};
+	update-policy {
+		grant MemeAutoDNSSync zonesub any;
+	};
+};
+
+
+
+# -<[ General Zone ]>- #
+#zone "meme.cyber.test." {
+#	type master;
+#	file "/etc/bind/zones/db.meme.cyber.test";
+#	key "MemeAutoDNSSync";
+#	allow-query { generic_meme; servers; staff; dmz; };
+#	
+#	key MemeAutoDNSSync;
+	#
+##	allow-update {
+#		key MemeAutoDNSSync;
+#	};
+#	
+#	update-policy {
+#		grant MemeAutoDNSSync zonesub PRT TXT DHCID;
+#	};
+	#
+#};
+
+
+# -<[ Reverse Server Zone ]>- #
+#zone "2.0.10.in-addr.arpa." {
+#	type master;
+##	file "/etc/bind/zones/db.2.0.10";
+#	allow-query { servers; };
+#	
+#	key MemeAutoDNSSync;
+#	
+#	allow-update {
+#		key MemeAutoDNSSync;
+#	};
+#	
+#	
+#};
+
+# -<[ Reverse Staff Zone ]>- #
+#zone "1.1.10.in-addr.arpa." {
+#	type master;
+#	file "/etc/bind/zones/db.1.1.10";
+#	allow-query { staff; };
+#
+#	key MemeAutoDNSSync;
+#	
+#	allow-update {
+#		key MemeAutoDNSSync;
+#	};
+#	
+#	update-policy {
+#		grant MemeAutoDNSSync zonesub PRT TXT DHCID;
+#	};
+#};
+
+

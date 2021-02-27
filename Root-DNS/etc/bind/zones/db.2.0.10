@@ -19,12 +19,14 @@ $TTL    8h
 ;~~~~~~~~~~~~~~~~~
 ; nameserver(s)
 ;
-@	IN	NS	Root-DNS.meme.cyber.test.
+@ 	IN	NS	root-dns.meme.cyber.test.
+root-dns.meme.cyber.test.	IN	A	10.0.2.4
 ;	IN	NS	dns2.cyber.test.
 
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ; Host pointers to canonical name
 
+1	IN	PTR	Server-FW.meme.cyber.test.
 2	IN	PTR	DHCP.meme.cyber.test.
 4	IN	PTR	Root-DNS.meme.cyber.test.
 5	IN	PTR	LDAP.meme.cyber.test.

@@ -1,0 +1,47 @@
+$TTL    8h
+@	IN      SOA     root-dns.meme.cyber.test.    root.meme.cyber.test. (
+		61 ; serial
+		8h         ; refresh
+		2h         ; retry
+		1w         ; expire
+		0          ; negative cache ttl
+		)
+;~~~~~~~~~~~~~~~~~
+; nameserver(s)
+;
+@ 	IN	NS	root-dns.meme.cyber.test.
+root-dns.meme.cyber.test.	IN	A	10.0.2.4
+;	IN	NS	dns2.cyber.test.
+
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		
+2	IN	PTR	A.meme.cyber.test.
+3	IN	PTR	B.meme.cyber.test.
+4	IN	PTR	C.meme.cyber.test.
+5	IN	PTR	D.meme.cyber.test.
+6	IN	PTR	F.meme.cyber.test.
+7	IN	PTR	E.meme.cyber.test.
+8	IN	PTR	I.meme.cyber.test.
+9	IN	PTR	O.meme.cyber.test.
+10	IN	PTR	U.meme.cyber.test.
+
+
+1.2	IN	PTR	Z.meme.cyber.test.
+1.3	IN	PTR	Q.meme.cyber.test.
+1.4	IN	PTR	R.meme.cyber.test.
+1.5	IN	PTR	S.meme.cyber.test.
+1.6	IN	PTR	T.meme.cyber.test.
+1.7	IN	PTR	M.meme.cyber.test.
+1.8	IN	PTR	N.meme.cyber.test.
+1.9	IN	PTR	X.meme.cyber.test.
+1.10	IN	PTR	Y.meme.cyber.test.
+
+2.1	IN	PTR	AAA.meme.cyber.test.
+3.1	IN	PTR	AAAA.meme.cyber.test.
+4.1	IN	PTR	AAAAA.meme.cyber.test.
+5.1	IN	PTR	AAAAAA.meme.cyber.test.
+6.1	IN	PTR	AAAAAAA.meme.cyber.test.
+7.1	IN	PTR	AAAAAAAA.meme.cyber.test.
+8.1	IN	PTR	AAAAAAAAA.meme.cyber.test.
+9.1	IN	PTR	AAAAAAAAAA.meme.cyber.test.
+10.1	IN	PTR	AAAAAAAAAAAA.meme.cyber.test.

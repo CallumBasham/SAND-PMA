@@ -1,25 +1,18 @@
+# Called by generic named.conf
+# Generic setting to be used by our DNS server
+
+
 options {
 	directory "/var/cache/bind";
 	
 	recursion yes;
 	#allow-recursion { trusted; };
 	listen-on { 10.0.2.4; };
-	allow-transfer { none; }; # May need to enable this...?
+	#allow-transfer { x.x.x.x; }; # Set this to slave DNS server...
 	
+	# If we don't know, go to Ext-DNS
+	forwarders { 52.2.2.70; };
 	
-	forwarders {
-		8.8.8.8;
-		8.8.4.4;
-	};
-	
-	#forward only;
-
-	#allow-query {
-	#	172.16.0.0/12;
-	#	10.0.1.0/28;
-	#};
-
-	#auth-nxdomain no;    # conform to RFC1035
-	#listen-on-v6 { any; };
+	auth-nxdomain no;    # conform to RFC1035
 	
 };

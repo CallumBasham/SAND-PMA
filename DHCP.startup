@@ -20,3 +20,4 @@ service isc-dhcp-server status
 
 # Test the DHCPD Configuration File
 #dhcpd -t /etc/dhcp/dhcpd.conf
+#cat /var/log/syslog # see error info
