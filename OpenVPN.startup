@@ -10,3 +10,17 @@ ifconfig eth0 10.0.1.3/28
 
 
 route add default gw 10.0.1.1
+
+
+iptables -i lo -j ACCEPT
+iptables -A INPUT -i eth0 -j ACCEPT # todo - filter more...
+iptables -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT # cont. of above
+iptables -A OUTPUT -j ACCEPT # Allow outgoing - todo - filter more
+
+
+#systemctl start openvpn@server
+#systemctl status openvpn@server
+
+# https://superuser.com/questions/497245/how-to-load-tun-module-in-linux
+modprobe tun
+#openvpn /etc/openvpn/server.conf &

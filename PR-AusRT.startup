@@ -1,0 +1,13 @@
+ifconfig eth0 52.2.2.71/28
+ifconfig eth1 172.16.0.1/28
+route add default gw 52.2.2.66
+
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+# [ NAT ]
+# Enable IP-Forwarding
+echo "1" > /proc/sys/net/ipv4/ip_forward
+
+
+# Replace all outbound traffic with this devices public IP Address unless its taffic intended for internal IP's
+iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source 52.2.2.71

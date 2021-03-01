@@ -1,0 +1,8 @@
+ifconfig eth0 192.168.0.155/24
+route add default gw 192.168.0.1
+
+# https://superuser.com/questions/497245/how-to-load-tun-module-in-linux
+modprobe tun
+#openvpn /etc/openvpn/client.conf
+
+#systemctl start openvpn@client.service

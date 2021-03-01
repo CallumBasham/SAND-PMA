@@ -1,0 +1,126 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 2 (0x2)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=UK, ST=Warwickshire, L=Coventry, O=MEME/emailAddress=Callum@meme.cyber.test
+        Validity
+            Not Before: Feb 28 03:41:20 2021 GMT
+            Not After : Feb 26 03:41:20 2031 GMT
+        Subject: C=UK, ST=Coventry, O=MEME, CN=R-SysAdm/emailAddress=R-SysAdm@meme.cyber.test
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (4096 bit)
+                Modulus:
+                    00:a8:87:73:99:86:3a:e6:d4:24:f1:f2:28:37:e6:
+                    ae:6a:44:e8:8c:75:58:2f:2a:c8:49:84:bc:f8:01:
+                    f2:8c:b3:12:18:af:fb:ab:98:f7:67:82:3d:5f:f0:
+                    39:5d:00:5e:8a:7c:54:81:8c:bc:8b:25:50:14:26:
+                    21:ce:9e:f8:ab:29:8b:64:c9:ee:38:52:69:ca:70:
+                    e3:f5:a6:66:08:12:4d:26:d5:6b:0b:cc:b2:bb:ab:
+                    28:30:1b:2c:f0:1e:0d:5a:57:86:8c:22:89:7e:ad:
+                    ea:28:8d:48:74:d5:b7:82:e0:e6:5b:dc:f8:4b:21:
+                    54:6f:29:2f:4d:e5:67:e1:78:20:47:bb:4a:73:42:
+                    fc:e8:fa:99:bd:d8:20:26:ac:bc:50:fb:87:4e:3d:
+                    2f:b9:f5:6f:8e:e2:3a:12:6d:1e:0f:72:bd:9c:6c:
+                    29:32:3a:6d:ed:50:3c:e0:10:c8:10:ba:4c:8b:13:
+                    0c:10:e7:d0:a4:ad:33:c9:68:57:77:80:61:42:d5:
+                    24:46:0a:9c:02:76:51:ea:6e:eb:12:1d:ae:20:f0:
+                    84:60:3e:bd:7d:d1:57:b8:19:d1:e5:6e:ce:1f:55:
+                    b5:bd:66:51:ef:4d:4f:3a:5b:48:b9:2f:3c:c9:7c:
+                    90:84:4a:9e:a3:db:91:6a:4e:d6:85:02:c5:42:c8:
+                    b4:5a:55:ad:a5:0f:e5:81:64:ea:22:14:32:a2:24:
+                    ae:25:d5:9c:49:f4:a8:5d:1b:2c:9a:4a:0c:c1:b9:
+                    e8:5e:3b:a1:36:8a:ef:53:84:a5:0f:85:73:24:99:
+                    1f:ba:7b:9b:09:ec:a3:42:1d:16:2d:fb:95:10:9e:
+                    5d:ad:23:c2:d6:02:d0:43:04:92:cd:e5:90:84:74:
+                    df:ab:cd:6a:24:a5:b7:4a:78:b3:f8:77:e8:d9:b3:
+                    9e:1c:36:19:d9:1d:62:8f:e1:8e:bc:94:3d:60:42:
+                    04:c0:70:6d:0b:f4:74:3a:91:80:b4:95:90:0d:99:
+                    84:4f:9f:b3:73:53:67:fb:9e:aa:09:f5:55:e7:6c:
+                    36:5a:d3:91:95:a8:8a:d8:ad:c2:59:2f:56:06:3c:
+                    d9:4f:8c:cd:b4:6a:1c:eb:ce:e7:f6:52:39:76:39:
+                    72:54:fe:e1:ec:05:bb:09:4c:1a:43:f3:fe:7a:75:
+                    e5:f0:06:2f:7f:e1:d9:90:ce:60:86:61:78:11:16:
+                    5d:c6:3c:2d:d0:9e:62:5d:ff:95:67:ba:a2:de:10:
+                    d3:48:e7:d5:fa:58:1a:2f:2b:55:ea:34:fc:3e:a9:
+                    b0:6f:9a:ab:f9:74:3f:35:cd:d7:5b:98:7a:e6:55:
+                    37:ad:b6:57:db:98:86:31:a7:5f:ea:cb:df:b7:7c:
+                    7d:c1:9d
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            X509v3 Subject Key Identifier: 
+                77:1C:1E:E6:D1:49:7A:41:57:42:19:85:B4:F3:80:C6:CB:A2:D6:A9
+            X509v3 Authority Key Identifier: 
+                keyid:66:71:A7:AA:03:93:C0:4A:14:18:78:22:57:52:DE:1F:3B:BF:75:B9
+                DirName:/C=UK/ST=Warwickshire/L=Coventry/O=MEME/emailAddress=Callum@meme.cyber.test
+                serial:76:10:B2:4F:78:B6:AE:EF:F8:D1:1E:C8:84:91:CA:16:99:97:02:41
+
+    Signature Algorithm: sha256WithRSAEncryption
+         a6:d8:65:3e:e5:0f:a3:c9:04:01:6f:48:f1:ae:dd:a3:bf:13:
+         12:e6:cf:3f:ed:ac:98:f6:78:ec:8c:02:80:f8:72:02:60:b5:
+         41:f5:ca:11:d0:38:85:1d:01:d4:07:06:4a:ab:10:04:74:dd:
+         bb:6b:12:f4:8f:ed:6f:4e:d9:4d:0a:c9:2e:25:8e:8a:06:fb:
+         01:27:3b:b1:4f:77:a8:03:22:01:0d:dd:b7:2b:b3:45:4a:ff:
+         ac:01:c7:53:36:9b:35:0c:be:27:59:4f:c2:b7:8a:b6:a2:f7:
+         0b:69:e8:fc:b2:ba:ee:96:a0:f5:8b:de:43:2f:37:44:b9:81:
+         6c:a7:3b:45:93:76:ed:31:6c:a5:2f:76:95:8c:fb:43:bc:83:
+         45:aa:56:03:98:43:51:9d:dc:f6:91:d6:b6:51:de:f1:27:99:
+         de:c9:e2:56:8b:73:ae:84:94:1d:a8:4a:0b:13:82:cb:36:76:
+         ac:ba:36:da:44:4c:59:57:14:bd:c6:a2:51:ee:2f:eb:79:ad:
+         f9:ba:3b:43:6f:dd:06:0b:37:62:4d:44:29:7d:cc:b6:a6:0f:
+         d0:ef:bd:db:b8:00:ad:d8:21:55:7d:5c:5c:a6:00:38:0d:5f:
+         95:ab:61:27:df:ba:15:7a:6b:8f:b1:ec:24:1d:3b:c6:8c:fd:
+         57:f3:6d:9f:96:31:96:a7:00:1f:9e:95:19:01:c3:77:70:7a:
+         4f:6c:a4:dc:12:2d:11:e3:18:fa:87:4f:23:07:b5:9f:05:53:
+         e0:bd:6b:b3:76:6b:f7:56:f1:bc:97:d6:d9:d9:31:f6:d0:38:
+         53:7a:f1:e5:5b:5e:44:ab:3b:74:4b:19:0d:21:fb:16:8d:4f:
+         86:be:bb:19:0e:00:80:72:fb:57:fb:dd:6a:ad:91:68:39:21:
+         78:2a:b1:02:89:31:42:61:aa:e9:76:09:b0:b2:1b:bf:45:cd:
+         0b:34:10:a6:6f:d2:13:e2:3c:16:eb:d3:a9:6b:c0:57:43:a5:
+         c3:1e:74:c0:4d:41:82:e4:c2:fd:f9:2a:09:08:c2:b5:04:98:
+         51:b8:8e:b6:0a:c5:ec:2f:60:31:e7:d6:ac:bb:0a:20:6f:0c:
+         29:4e:88:99:37:b8:3a:41:13:cc:ed:21:00:75:86:3a:fc:df:
+         33:ba:63:13:4b:d9:d0:6a:37:66:27:63:6f:31:b1:35:f4:62:
+         99:48:88:7c:2d:ac:70:8b:d8:92:7e:48:f4:73:6b:a3:a7:e2:
+         ff:6c:62:bb:29:22:23:35:4a:6f:a7:20:d5:f8:b8:64:66:9c:
+         e8:4b:4f:60:e6:8b:62:ae:eb:b7:2b:1d:27:5d:70:5f:2d:58:
+         be:c5:4a:54:e6:fb:a2:c5
+-----BEGIN CERTIFICATE-----
+MIIGLjCCBBagAwIBAgIBAjANBgkqhkiG9w0BAQsFADBtMQswCQYDVQQGEwJVSzEV
+MBMGA1UECAwMV2Fyd2lja3NoaXJlMREwDwYDVQQHDAhDb3ZlbnRyeTENMAsGA1UE
+CgwETUVNRTElMCMGCSqGSIb3DQEJARYWQ2FsbHVtQG1lbWUuY3liZXIudGVzdDAe
+Fw0yMTAyMjgwMzQxMjBaFw0zMTAyMjYwMzQxMjBaMGsxCzAJBgNVBAYTAlVLMREw
+DwYDVQQIDAhDb3ZlbnRyeTENMAsGA1UECgwETUVNRTERMA8GA1UEAwwIUi1TeXNB
+ZG0xJzAlBgkqhkiG9w0BCQEWGFItU3lzQWRtQG1lbWUuY3liZXIudGVzdDCCAiIw
+DQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAKiHc5mGOubUJPHyKDfmrmpE6Ix1
+WC8qyEmEvPgB8oyzEhiv+6uY92eCPV/wOV0AXop8VIGMvIslUBQmIc6e+Kspi2TJ
+7jhSacpw4/WmZggSTSbVawvMsrurKDAbLPAeDVpXhowiiX6t6iiNSHTVt4Lg5lvc
++EshVG8pL03lZ+F4IEe7SnNC/Oj6mb3YICasvFD7h049L7n1b47iOhJtHg9yvZxs
+KTI6be1QPOAQyBC6TIsTDBDn0KStM8loV3eAYULVJEYKnAJ2Uepu6xIdriDwhGA+
+vX3RV7gZ0eVuzh9Vtb1mUe9NTzpbSLkvPMl8kIRKnqPbkWpO1oUCxULItFpVraUP
+5YFk6iIUMqIkriXVnEn0qF0bLJpKDMG56F47oTaK71OEpQ+FcySZH7p7mwnso0Id
+Fi37lRCeXa0jwtYC0EMEks3lkIR036vNaiSlt0p4s/h36Nmznhw2GdkdYo/hjryU
+PWBCBMBwbQv0dDqRgLSVkA2ZhE+fs3NTZ/ueqgn1VedsNlrTkZWoititwlkvVgY8
+2U+MzbRqHOvO5/ZSOXY5clT+4ewFuwlMGkPz/np15fAGL3/h2ZDOYIZheBEWXcY8
+LdCeYl3/lWe6ot4Q00jn1fpYGi8rVeo0/D6psG+aq/l0PzXN11uYeuZVN622V9uY
+hjGnX+rL37d8fcGdAgMBAAGjgdowgdcwCQYDVR0TBAIwADAdBgNVHQ4EFgQUdxwe
+5tFJekFXQhmFtPOAxsui1qkwgaoGA1UdIwSBojCBn4AUZnGnqgOTwEoUGHgiV1Le
+Hzu/dbmhcaRvMG0xCzAJBgNVBAYTAlVLMRUwEwYDVQQIDAxXYXJ3aWNrc2hpcmUx
+ETAPBgNVBAcMCENvdmVudHJ5MQ0wCwYDVQQKDARNRU1FMSUwIwYJKoZIhvcNAQkB
+FhZDYWxsdW1AbWVtZS5jeWJlci50ZXN0ghR2ELJPeLau7/jRHsiEkcoWmZcCQTAN
+BgkqhkiG9w0BAQsFAAOCAgEApthlPuUPo8kEAW9I8a7do78TEubPP+2smPZ47IwC
+gPhyAmC1QfXKEdA4hR0B1AcGSqsQBHTdu2sS9I/tb07ZTQrJLiWOigb7ASc7sU93
+qAMiAQ3dtyuzRUr/rAHHUzabNQy+J1lPwreKtqL3C2no/LK67pag9YveQy83RLmB
+bKc7RZN27TFspS92lYz7Q7yDRapWA5hDUZ3c9pHWtlHe8SeZ3sniVotzroSUHahK
+CxOCyzZ2rLo22kRMWVcUvcaiUe4v63mt+bo7Q2/dBgs3Yk1EKX3MtqYP0O+927gA
+rdghVX1cXKYAOA1flathJ9+6FXprj7HsJB07xoz9V/Ntn5YxlqcAH56VGQHDd3B6
+T2yk3BItEeMY+odPIwe1nwVT4L1rs3Zr91bxvJfW2dkx9tA4U3rx5VteRKs7dEsZ
+DSH7Fo1Phr67GQ4AgHL7V/vdaq2RaDkheCqxAokxQmGq6XYJsLIbv0XNCzQQpm/S
+E+I8FuvTqWvAV0Olwx50wE1BguTC/fkqCQjCtQSYUbiOtgrF7C9gMefWrLsKIG8M
+KU6ImTe4OkETzO0hAHWGOvzfM7pjE0vZ0Go3ZidjbzGxNfRimUiIfC2scIvYkn5I
+9HNro6fi/2xiuykiIzVKb6cg1fi4ZGac6EtPYOaLYq7rtysdJ11wXy1YvsVKVOb7
+osU=
+-----END CERTIFICATE-----

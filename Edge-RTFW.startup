@@ -1,9 +1,10 @@
-# [ Edge-RWFT ]
-# Purpose -> 
-#	The entry point into the MEME Network, acts as a router and a firewall.
+#|-=======================================-|
+#|	[ Edge-RWFT ]
+#|	The entry point into the MEME Network, acts as a router and a firewall.
+#|-=======================================-|
 
-
-# [ Interfaces ]
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+# [ Interfaces ]-
 # WAN
 ifconfig eth0 52.2.2.65/28
 
@@ -11,6 +12,7 @@ ifconfig eth0 52.2.2.65/28
 ifconfig eth1 10.0.0.1/30
 
 
+#----------------------------------------------------------------------------------------------------------------------------------------------------
 # [ Routing ]
 # List the DMZ behind Squid
 ip route add 10.0.1.0/28 via 10.0.0.2 dev eth1
@@ -28,20 +30,57 @@ ip route add 10.0.2.0/28 via 10.0.0.2 dev eth1
 route add default gw 52.2.2.66
 
 
-# [ NAT ]
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+# [ Firewall ] {Ward, T. NAT(2017) | Cheesehead NAT (2007) | Dan NAT (2018)}
+# Allow localhost traffic
+iptables -A INPUT -i lo -j ACCEPT  -m comment --comment "RID:Edge-RTFW-1"
+
+# Accept traffic for related and established connections
+iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT  -m comment --comment "RID:Edge-RTFW-2"
+
+# Allow ICMP Traffic
+iptables -A INPUT -p icmp -j ACCEPT  -m comment --comment "RID:Edge-RTFW-3"
+
+# Allow OpenVPN Connections (todo - add TCP/UDP filter as well...)
+iptables -A INPUT -i eth0 -m state --state NEW --dport 1194 -j ACCEPT -m comment --comment "RID:Edge-RTFW-4"
+
+# Drop traffic coming from internet to public interface unless its already established as above
+iptables -A INPUT -i eth0 -j DROP  -m comment --comment "RID:Edge-RTFW-5"
+
+# Allow traffic from private subnets this is routing for
+iptables -A INPUT -i eth1 -j ACCEPT  -m comment --comment "RID:Edge-RTFW-6"
+
+# Drop all other traffic
+iptables -A INPUT -j DROP  -m comment --comment "RID:Edge-RTFW-7"
+
+# Accept forwarding requests this is routing for
+iptables -A FORWARD -i eth0 -j ACCEPT -m comment --comment "RID:Edge-RTFW-8"
+iptables -A FORWARD -i eth1 -j ACCEPT -m comment --comment "RID:Edge-RTFW-9"
+
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+# [ PORT-FORWARDING ] {Karlrupp NAT (n.d.)}
+# Forward tcp port 1194 to the OpenVPN server
+iptables -t nat -A PREROUTING -p tcp --dport 1194 -j DNAT --to-dest 10.0.1.3
+
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+# [ NAT ] {Thejimmagknows NAT (2012) | Dan NAT (2018) | Laurenson, T. NAT(2021) | Cheesehead NAT (2007) | Ward, T. NAT(2017) | Goyzueta NAT (2020) | manuchaud100 NAT (2017) | Karlrupp NAT (n.d.) } 
 # Enable IP-Forwarding
 echo "1" > /proc/sys/net/ipv4/ip_forward
 
 # Perform NAT
 # Masquerade = replace senders address with routers
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE 
+
+# Replace all outbound traffic with this devices public IP Address unless its taffic intended for internal IP's
+iptables -t nat -A POSTROUTING -o eth0 ! -d 10.0.0.0/8 -j SNAT --to-source 52.2.2.65 -m comment --comment "RID:Edge-RTFW-10"
+
+# This may also be considered if required for greater security: (only allow those with the subnet defined to be translated...)
+# iptables -t nat -A POSTROUTING -o eth0 -s x.x.x.x/x -j SNAT --to-source 52.2.2.65
+
+# Keeping Track of NAT Connections
+# conntrack -L
+# conntrack -E
+# New = new NAT traffic flow / Update = Active NAT traffic flow / Assured = Firewall sees NAT traffic in both directions / Destroy = Destroys a NAT mapping
 
 
-# Preroute incomming web traffic (port 80), to our Int-WWW Apache Server ###TODO
-#iptables -t nat -A PREROUTING -p tcp -i eth0 --dport 80 -j DNAT --to 10.0.1.6
-
-
-# [ Firewall ]
-iptables -A INPUT -i eth0 -j ACCEPT # todo - filter more...
-iptables -A INPUT -i eth1 -m state --state ESTABLISHED,RELATED -j ACCEPT # cont. of above
-iptables -A OUTPUT -j ACCEPT # Allow outgoing - todo - filter more
